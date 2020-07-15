@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/brands": {
+    "/brews": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Brand"
+                    "$ref": "#/components/schemas/Brew"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Brand"
+          "Brew"
         ],
         "parameters": [
           {
@@ -201,7 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Brand"
+                  "$ref": "#/components/schemas/Brew"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Brand"
+          "Brew"
         ],
         "requestBody": {
           "description": "",
@@ -247,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewBrand"
+                "$ref": "#/components/schemas/NewBrew"
               }
             }
           }
         }
       }
     },
-    "/brands/count": {
+    "/brews/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -306,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Brand"
+          "Brew"
         ],
         "parameters": []
       }
     },
-    "/brands/{id}": {
+    "/brews/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -321,7 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Brand"
+                  "$ref": "#/components/schemas/Brew"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Brand"
+          "Brew"
         ],
         "parameters": [
           {
@@ -383,7 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Brand"
+                  "$ref": "#/components/schemas/Brew"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Brand"
+          "Brew"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewBrand"
+                "$ref": "#/components/schemas/NewBrew"
               }
             }
           }
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Brand"
+          "Brew"
         ],
         "parameters": [
           {
@@ -514,10 +514,9 @@
   },
   "components": {
     "schemas": {
-      "Brand": {
+      "Brew": {
         "required": [
-          "id",
-          "name"
+          "id"
         ],
         "properties": {
           "id": {
@@ -593,32 +592,33 @@
               }
             }
           },
-          "brews": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
+          "price": {
+            "type": "number"
+          },
+          "brand": {
+            "required": [
+              "id",
+              "name"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "image": {
+                "type": "array",
+                "items": {
                   "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "image": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "price": {
-                  "type": "number"
-                },
-                "brand": {
+                }
+              },
+              "brews": {
+                "type": "array",
+                "items": {
                   "type": "string"
                 }
               }
@@ -626,10 +626,7 @@
           }
         }
       },
-      "NewBrand": {
-        "required": [
-          "name"
-        ],
+      "NewBrew": {
         "properties": {
           "name": {
             "type": "string"
@@ -637,11 +634,11 @@
           "description": {
             "type": "string"
           },
-          "brews": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "price": {
+            "type": "number"
+          },
+          "brand": {
+            "type": "string"
           }
         }
       }
@@ -649,7 +646,7 @@
   },
   "tags": [
     {
-      "name": "Brand"
+      "name": "Brew"
     }
   ]
 }

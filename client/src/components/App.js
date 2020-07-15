@@ -3,8 +3,8 @@ import './App.css';
 // prettier-ignore
 import { Box, Container, Heading, Card, Image, Text, SearchField, Icon } from 'gestalt';
 import { Link } from 'react-router-dom';
-import Strapi from 'strapi-sdk-javascript/build/main';
 import Loader from './Loader';
+import Strapi from 'strapi-sdk-javascript/build/main';
 
 const apiUrl = process.env.API_URL || 'http://localhost:1337';
 const strapi = new Strapi(apiUrl);
@@ -114,7 +114,7 @@ class App extends Component {
 									</Text>
 									<Text>{brand.description}</Text>
 									<Text bold size='xl'>
-										<Link to={'/${brand._id'}>See Brews</Link>
+										<Link to={`/${brand._id}`}>See Brews</Link>
 									</Text>
 								</Box>
 							</Card>
